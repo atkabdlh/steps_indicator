@@ -74,6 +74,7 @@ linux/build/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+.fvm/
 
 # Test result files
 coverage/
