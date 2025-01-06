@@ -1,7 +1,7 @@
 name: vertical_steps_indicator
 description: "A simple flutter steps indicator widget."
 version: 0.0.1
-homepage: https://github.com/atkabdlh/vertical_steps_indicator
+homepage: https://pub.dev/packages/vertical_steps_indicator
 repository: https://github.com/atkabdlh/vertical_steps_indicator
 issue_tracker: https://github.com/atkabdlh/vertical_steps_indicator/issues
 
