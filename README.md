@@ -1,4 +1,4 @@
-# Steps Indicator Widget
+# Vertical Steps Indicator Widget
 
 A Flutter package for customizable steps indicators, perfect for visualizing multi-step processes in your app.
 
@@ -15,7 +15,7 @@ Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  steps_indicator: ^0.0.1
+  vertical_steps_indicator: ^0.0.1
 ```
 
 Then run:

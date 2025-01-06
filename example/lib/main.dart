@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:steps_indicator/steps_indicator.dart';
+import 'package:vertical_steps_indicator/vertical_steps_indicator.dart';
 
 void main() {
   runApp(const MyApp());

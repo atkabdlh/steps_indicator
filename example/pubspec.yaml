@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  steps_indicator:
+  vertical_steps_indicator:
     path: ../
 
 

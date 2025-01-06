@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:steps_indicator/src/indicator_line.dart';
-import 'package:steps_indicator/src/normal_indicator.dart';
-import 'package:steps_indicator/src/selected_indicator.dart';
-import 'package:steps_indicator/steps_indicator.dart';
+import 'package:vertical_steps_indicator/src/indicator_line.dart';
+import 'package:vertical_steps_indicator/src/normal_indicator.dart';
+import 'package:vertical_steps_indicator/src/selected_indicator.dart';
+import 'package:vertical_steps_indicator/vertical_steps_indicator.dart';
 
 class StepsIndicatorWidget extends StatefulWidget {
   const StepsIndicatorWidget({

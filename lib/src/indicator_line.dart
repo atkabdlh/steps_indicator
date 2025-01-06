@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:steps_indicator/src/dashed_line_painter.dart';
-import 'package:steps_indicator/steps_indicator.dart';
+import 'package:vertical_steps_indicator/src/dashed_line_painter.dart';
+import 'package:vertical_steps_indicator/vertical_steps_indicator.dart';
 
 class IndicatorLine extends StatefulWidget {
   const IndicatorLine({
