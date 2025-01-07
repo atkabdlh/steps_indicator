@@ -28,99 +28,103 @@ flutter pub get
 
 Here is an example of how to use the `StepsIndicatorWidget`:
 
+### Basic Example
+
+![Basic Example](example_images/basic.png)
+
 ```dart
-dartColumn(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    Text(
-      'Default Steps Indicator',
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-      ),
-    ),
-    StepsIndicatorWidget(
-      steps: steps,
-      currentStep: currentStep,
-    ),
-    SizedBox(height: 16),
-    Text(
-      'Dashed Steps Indicator',
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-      ),
-    ),
-    StepsIndicatorWidget(
-      steps: steps,
-      currentStep: currentStep,
-      lineType: LineType.dashed,
-    ),
-    SizedBox(height: 16),
-    Text(
-      'Default Steps Indicator with Custom Color',
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-      ),
-    ),
-    StepsIndicatorWidget(
-      steps: steps,
-      currentStep: currentStep,
-      indicatorColor: Colors.teal,
-      backgroundColor: Colors.pink.shade100,
-      borderColor: Colors.teal.shade200,
-    ),
-    SizedBox(height: 16),
-    Text(
-      'Dashed Steps Indicator with Custom Color',
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-      ),
-    ),
-    StepsIndicatorWidget(
-      steps: steps,
-      currentStep: currentStep,
-      indicatorColor: Colors.teal,
-      backgroundColor: Colors.pink.shade100,
-      borderColor: Colors.teal.shade200,
-      lineType: LineType.dashed,
-    ),
+StepsIndicatorWidget(
+  steps: [
+    StepItemModel(title: Text('Step 1')),
+    StepItemModel(title: Text('Step 2')),
+    StepItemModel(contents: Text('Custom Step Content')),
   ],
+  currentStep: 1,
 )
 ```
 
-## Examples
-
-### Default Steps Indicator:
-
-![Default Example](example_images/default.png)
-
-### Dashed Steps Indicator:
+### Dashed Line Example
 
 ![Dashed Example](example_images/dashed.png)
 
-### Default Steps Indicator with Custom Colors:
+```dart
+StepsIndicatorWidget(
+  steps: [
+    StepItemModel(title: Text('Step 1')),
+    StepItemModel(
+        title: Text('Step 2'),
+        subtitle1: Text('Subtitle to step 2')),
+    StepItemModel(
+        title: Text('Step 3'),
+        subtitle1: Text('Subtitle to step 3'),
+        subtitle2: Text('Subtitle 2 to step 3')),
+  ],
+  currentStep: 1,
+  lineType: LineType.dashed,
+  indicatorType: IndicatorType.previous,
+),
+```
 
-![Default Custom Example](example_images/default_custom.png)
+### Advanced Example
 
-### Dashed Steps Indicator with Custom Colors:
-![Dashed Custom Example](example_images/dashed_custom.png)
+![Advanced Example](example_images/advanced.png)
 
-## Customization
+```dart
+StepsIndicatorWidget(
+  steps: [
+    StepItemModel(title: Text('Step 1'), subtitle1: Text('Start Here')),
+    StepItemModel(title: Text('Step 2'), subtitle1: Text('In Progress')),
+    StepItemModel(contents: Text('Final Step Content')),
+  ],
+  currentStep: 2,
+  indicatorType: IndicatorType.onlyCurrent,
+  lineType: LineType.dashed,
+  indicatorColor: Colors.teal,
+  backgroundColor: Colors.pink.shade100,
+  borderColor: Colors.teal.shade200,
+  selectedIndicator: Icon(Icons.check_circle, color: Colors.green),
+  normalIndicator: Icon(Icons.circle_outlined, color: Colors.grey),
+)
+```
 
-### Properties
-- **steps**: Total number of steps in the indicator.
-- **currentStep**: The currently active step.
-- **indicatorColor**: The color of the step indicators.
-- **backgroundColor**: The background color of the steps.
-- **borderColor**: The border color for the step indicators.
-- **lineType**: `LineType.solid` or `LineType.dashed`.
+## Parameters
+
+### StepIndicatorWidget
+
+|**Parameter**	|**Type**	|**Description**|
+|:-----------|:-----------|:-----------|
+|**steps**	|List\<StepItemModel\>	|Defines the steps with optional title, subtitle, or custom content.|
+|**currentStep**	|int	|The current step index.|
+|**indicatorType**	|IndicatorType	|Specifies the indicator type: **onlyCurrent** will only highlight current step or **previous** which will highlight current and all previous steps.|
+|**stepItemHeight**	|double?	|Custom height for each step item.|
+|**indicatorColor**	|Color?	|The color for the step indicator.|
+|**borderColor**	|Color?	|The border color for the step indicator.|
+|**backgroundColor**	|Color?	|The background color for the step indicator.|
+|**lineType**	|LineType?	|Specifies the line style: normal or dashed.|
+|**selectedIndicator**	|Widget?	|Widget to override the current step indicator.|
+|**normalIndicator**	|Widget?	|Widget to override the normal step indicator.|
+
+### StepItemModel
+|**Property**	|**Type**	|**Description**|
+|:-----------|:-----------|:-----------|
+|**title**	|Widget?	|Title widget for the step item.|
+|**subtitle1**	|Widget?	|First subtitle widget for the step item.|
+|**subtitle2**	|Widget?	|Second subtitle widget for the step item.|
+|**contents**	|Widget?	|Custom content for the step item.|
+
+**Note**: Either title or contents must be provided; otherwise, an error will be thrown.
+
+## Enums
+
+### LineType
+
+- normal
+- dashed
+
+### IndicatorType
+
+- onlyCurrent
+- previous
 
 ## Example App
 

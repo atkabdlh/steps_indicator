@@ -14,27 +14,24 @@ class SelectedIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: ((height ?? 110) - 24) * 0.5),
-      child: Container(
-        width: 24,
-        height: 24,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: backgroundColor ?? Colors.white,
-          border: Border.all(
-            color: indicatorColor ?? Color(0xFF005BFF),
-            width: 2,
-          ),
+    return Container(
+      width: 24,
+      height: 24,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: backgroundColor ?? Colors.white,
+        border: Border.all(
+          color: indicatorColor ?? Color(0xFF005BFF),
+          width: 2,
         ),
-        child: Center(
-          child: Container(
-            width: 8,
-            height: 8,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: indicatorColor ?? Color(0xFF005BFF),
-            ),
+      ),
+      child: Center(
+        child: Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: indicatorColor ?? Color(0xFF005BFF),
           ),
         ),
       ),

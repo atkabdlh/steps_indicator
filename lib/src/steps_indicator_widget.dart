@@ -55,24 +55,27 @@ class _StepsIndicatorWidgetState extends State<StepsIndicatorWidget> {
                 child: Center(
                   child: Column(
                     children: List.generate(
-                      widget.steps.length,
-                      (index) =>
-                          (widget.indicatorType == IndicatorType.onlyCurrent
-                                  ? index == widget.currentStep
-                                  : index <= widget.currentStep)
-                              ? widget.selectedIndicator ??
-                                  SelectedIndicator(
-                                    indicatorColor: widget.indicatorColor,
-                                    backgroundColor: widget.backgroundColor,
-                                    height: widget.stepItemHeight,
-                                  )
-                              : widget.normalIndicator ??
-                                  NormalIndicator(
-                                    borderColor: widget.borderColor,
-                                    backgroundColor: widget.backgroundColor,
-                                    height: widget.stepItemHeight,
-                                  ),
-                    ),
+                        widget.steps.length,
+                        (index) => Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical:
+                                      ((widget.stepItemHeight ?? 110) - 24) *
+                                          0.5),
+                              child: (widget.indicatorType ==
+                                          IndicatorType.onlyCurrent
+                                      ? index == widget.currentStep
+                                      : index <= widget.currentStep)
+                                  ? widget.selectedIndicator ??
+                                      SelectedIndicator(
+                                        indicatorColor: widget.indicatorColor,
+                                        backgroundColor: widget.backgroundColor,
+                                      )
+                                  : widget.normalIndicator ??
+                                      NormalIndicator(
+                                        borderColor: widget.borderColor,
+                                        backgroundColor: widget.backgroundColor,
+                                      ),
+                            )),
                   ),
                 ),
               ),

@@ -136,7 +136,7 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Default Steps Indicator',
+                'Basic Steps Indicator',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -144,9 +144,14 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
                 ),
               ),
               StepsIndicatorWidget(
-                steps: steps,
-                currentStep: currentStep,
-                indicatorType: IndicatorType.onlyCurrent,
+                steps: [
+                  StepItemModel(title: Text('Step 1')),
+                  StepItemModel(
+                      title: Text('Step 2'),
+                      subtitle1: Text('Subtitle to step 2')),
+                  StepItemModel(contents: Text('Custom Step Content')),
+                ],
+                currentStep: 0,
               ),
               SizedBox(height: 16),
               Text(
@@ -158,14 +163,23 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
                 ),
               ),
               StepsIndicatorWidget(
-                steps: steps,
-                currentStep: currentStep,
+                steps: [
+                  StepItemModel(title: Text('Step 1')),
+                  StepItemModel(
+                      title: Text('Step 2'),
+                      subtitle1: Text('Subtitle to step 2')),
+                  StepItemModel(
+                      title: Text('Step 3'),
+                      subtitle1: Text('Subtitle to step 3'),
+                      subtitle2: Text('Subtitle 2 to step 3')),
+                ],
+                currentStep: 1,
                 lineType: LineType.dashed,
                 indicatorType: IndicatorType.previous,
               ),
               SizedBox(height: 16),
               Text(
-                'Default Steps Indicator with Custom Color',
+                'Advanced Steps Indicator',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -173,31 +187,44 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
                 ),
               ),
               StepsIndicatorWidget(
-                steps: steps,
-                currentStep: currentStep,
-                indicatorType: IndicatorType.previous,
+                steps: [
+                  StepItemModel(
+                      title: Text('Step 1'), subtitle1: Text('Start Here')),
+                  StepItemModel(
+                      title: Text('Step 2'), subtitle1: Text('In Progress')),
+                  StepItemModel(contents: Text('Final Step Content')),
+                ],
+                currentStep: 1,
                 stepItemHeight: 160,
+                indicatorType: IndicatorType.onlyCurrent,
                 indicatorColor: Colors.teal,
                 backgroundColor: Colors.pink.shade100,
                 borderColor: Colors.teal.shade200,
-              ),
-              SizedBox(height: 16),
-              Text(
-                'Dashed Steps Indicator with Custom Color',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                selectedIndicator: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.pink.shade100,
+                  ),
+                  child: Center(
+                    child: Icon(Icons.check, color: Colors.white),
+                  ),
                 ),
-              ),
-              StepsIndicatorWidget(
-                steps: steps,
-                currentStep: currentStep,
-                stepItemHeight: 160,
-                indicatorColor: Colors.teal,
-                backgroundColor: Colors.pink.shade100,
-                borderColor: Colors.teal.shade200,
-                lineType: LineType.dashed,
+                normalIndicator: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey,
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
