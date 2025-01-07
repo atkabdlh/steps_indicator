@@ -2,6 +2,34 @@
 
 A Flutter package for customizable steps indicators, perfect for visualizing multi-step processes in your app.
 
+## What's New in Version 0.0.2
+
+### 🚀 New Features
+
+- **Dynamic Step Items**: Introduced `StepItemModel` for flexible step customization. Each step can now include:
+  - A title widget.
+  - Up to two subtitle widgets (`subtitle1`, `subtitle2`).
+  - Custom content widget for tailored designs.
+  
+- **Custom Indicators**:
+  - `selectedIndicator`: Customize the current step's indicator.
+  - `normalIndicator`: Override the appearance of non-current indicators.
+
+### 🛠 Improvements
+
+- **Indicator Type Control**: Added `IndicatorType` enum to specify:
+  - `onlyCurrent`: Highlights only the current step.
+  - `previous`: Highlights the current and all previous steps.
+
+- **Dynamic Step Heights**: Added `stepItemHeight` for precise control over step item dimensions.
+
+### ✨ Enhancements
+
+- **Steps Refactor**: Updated `steps` to use `List<StepItemModel>` for increased flexibility.
+- **Error Handling**: Throws an error if neither `title` nor `contents` is provided in a `StepItemModel`.
+
+---
+
 ## Features
 
 - **Default Steps Indicator**: Simple and clean indicator design.
@@ -15,7 +43,7 @@ Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vertical_steps_indicator: ^0.0.1
+  vertical_steps_indicator: ^0.0.2
 ```
 
 Then run:
