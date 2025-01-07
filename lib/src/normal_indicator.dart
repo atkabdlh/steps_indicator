@@ -5,15 +5,17 @@ class NormalIndicator extends StatelessWidget {
     super.key,
     this.borderColor,
     this.backgroundColor,
+    this.height,
   });
 
   final Color? borderColor;
   final Color? backgroundColor;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: (110 - 24) * 0.5),
+      padding: EdgeInsets.symmetric(vertical: ((height ?? 110) - 24) * 0.5),
       child: Container(
         width: 24,
         height: 24,

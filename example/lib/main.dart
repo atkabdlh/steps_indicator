@@ -32,8 +32,8 @@ class StepsIndicatorExample extends StatefulWidget {
 }
 
 class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
-  List<Widget> steps = [];
-  int currentStep = 0;
+  List<StepItemModel> steps = [];
+  int currentStep = 2;
 
   Widget buildSteps(String title, String? subtitle1, String? subtitle2) {
     return Padding(
@@ -75,13 +75,43 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
 
   @override
   void initState() {
+    // steps = List.generate(
+    //     4,
+    //     (index) => buildSteps(
+    //           'Step ${index + 1}',
+    //           'subtitle 1 index ${index + 1}',
+    //           'subtitle 2 index ${index + 1}',
+    //         ));
+
     steps = List.generate(
-        4,
-        (index) => buildSteps(
-              'Step ${index + 1}',
-              'subtitle 1 index ${index + 1}',
-              'subtitle 2 index ${index + 1}',
-            ));
+      4,
+      (index) => StepItemModel(
+        title: Text(
+          'Step ${index + 1}',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        subtitle1: Text(
+          'subtitle 1 index ${index + 1}',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        subtitle2: Text(
+          'subtitle 2 index ${index + 1}',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
     super.initState();
   }
 
@@ -116,6 +146,7 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
               StepsIndicatorWidget(
                 steps: steps,
                 currentStep: currentStep,
+                indicatorType: IndicatorType.onlyCurrent,
               ),
               SizedBox(height: 16),
               Text(
@@ -130,6 +161,7 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
                 steps: steps,
                 currentStep: currentStep,
                 lineType: LineType.dashed,
+                indicatorType: IndicatorType.previous,
               ),
               SizedBox(height: 16),
               Text(
@@ -143,6 +175,8 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
               StepsIndicatorWidget(
                 steps: steps,
                 currentStep: currentStep,
+                indicatorType: IndicatorType.previous,
+                stepItemHeight: 160,
                 indicatorColor: Colors.teal,
                 backgroundColor: Colors.pink.shade100,
                 borderColor: Colors.teal.shade200,
@@ -159,6 +193,7 @@ class _StepsIndicatorExampleState extends State<StepsIndicatorExample> {
               StepsIndicatorWidget(
                 steps: steps,
                 currentStep: currentStep,
+                stepItemHeight: 160,
                 indicatorColor: Colors.teal,
                 backgroundColor: Colors.pink.shade100,
                 borderColor: Colors.teal.shade200,

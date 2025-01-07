@@ -7,11 +7,13 @@ class IndicatorLine extends StatefulWidget {
     super.key,
     required this.stepsCount,
     required this.lineType,
+    this.stepItemHeight,
     this.lineColor,
   });
 
   final int stepsCount;
   final LineType lineType;
+  final double? stepItemHeight;
   final Color? lineColor;
 
   @override
@@ -23,14 +25,16 @@ class _IndicatorLineState extends State<IndicatorLine> {
   double widgetHeight = 110;
   @override
   void initState() {
-    widgetHeight = (widgetHeight * (widget.stepsCount - 1));
+    widgetHeight =
+        ((widget.stepItemHeight ?? widgetHeight) * (widget.stepsCount - 1));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 110 * 0.5),
+      padding:
+          EdgeInsets.symmetric(vertical: (widget.stepItemHeight ?? 110) * 0.5),
       child: SizedBox(
         width: widgetWidth,
         height: widgetHeight,
